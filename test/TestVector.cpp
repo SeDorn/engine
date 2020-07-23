@@ -43,6 +43,17 @@ TEST_F(TestVector, MultiplyFactor)
   ASSERT_EQ(v.z, 6);
 }
 
+TEST_F(TestVector, CrossProduct)
+{
+  Math::Vector a(2, 3, 4);
+  Math::Vector b(5, 6, 7);
+  
+  Math::Vector result = a.cross(b);
+  Math::Vector realResult(-3, 6, -3);
+  
+  ASSERT_EQ(result, realResult);
+}
+
 TEST_F(TestVector, Length)
 {
   Math::Vector v1(1, 2, 3);

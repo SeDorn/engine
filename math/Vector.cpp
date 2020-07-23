@@ -13,6 +13,13 @@ Vector::Vector(float x_, float y_, float z_) : x(x_), y(y_), z(z_)
 {
 }
 
+bool Vector::operator==(const Vector &b) const
+{
+  return this->x == b.x &&
+         this->y == b.y &&
+         this->z == b.z;
+}
+
 float Vector::operator*(const Vector& b) const
 {
   return this->x * b.x + this->y * b.y + this->z * b.z;
@@ -30,6 +37,13 @@ void Vector::operator*=(const float factor)
   this->z *= factor;
 }
 
+Vector Vector::cross(const Vector &b) const
+{
+  return Vector(this->y * b.z - this->z * b.y,
+                this->z * b.x - this->x * b.z,
+                this->x * b.y - this->y * b.x);
+}
+
 float Vector::length() const
 {
   return static_cast<float>(std::sqrt(std::pow(this->x, 2) +
@@ -41,8 +55,6 @@ void Vector::print() const
 {
   std::cout << "Vector:" << " x: " << x << " y: " << y << " z: " << z << std::endl;
 }
-
-
 
 
 
