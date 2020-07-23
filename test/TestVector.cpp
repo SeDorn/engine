@@ -1,4 +1,5 @@
 #include "gtest/gtest.h"
+#include "../math/Common.h"
 #include "../math/Vector.h"
 
 class TestVector : public ::testing::Test
@@ -40,4 +41,10 @@ TEST_F(TestVector, MultiplyFactor)
   ASSERT_EQ(v.x, 2);
   ASSERT_EQ(v.y, 4);
   ASSERT_EQ(v.z, 6);
+}
+
+TEST_F(TestVector, Length)
+{
+  Math::Vector v1(1, 2, 3);
+  ASSERT_LE(v1.length() - std::sqrt(1 + 4 + 9), std::numeric_limits<float>::epsilon());
 }

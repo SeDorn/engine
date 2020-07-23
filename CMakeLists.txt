@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(test)
 
-add_executable(Engine main.cpp math/Vector.cpp math/Vector.h test/TestVector.cpp)
+add_executable(Engine main.cpp math/Vector.cpp math/Vector.h test/TestVector.cpp math/Common.h)

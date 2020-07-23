@@ -13,6 +13,8 @@ namespace Math
       Vector operator* (float factor) const;
       void operator*= (float factor);
       
+      float length() const;
+      
       void print() const;
       
       float x;

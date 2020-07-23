@@ -1,3 +1,4 @@
+#include "Common.h"
 #include "Vector.h"
 
 #include <iostream>
@@ -27,6 +28,13 @@ void Vector::operator*=(const float factor)
   this->x *= factor;
   this->y *= factor;
   this->z *= factor;
+}
+
+float Vector::length() const
+{
+  return static_cast<float>(std::sqrt(std::pow(this->x, 2) +
+                                         std::pow(this->y, 2) +
+                                         std::pow(this->z, 2)));
 }
 
 void Vector::print() const
