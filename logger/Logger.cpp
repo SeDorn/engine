@@ -20,7 +20,7 @@ void Logger::printStacktrace(int size)
   std::cout << "Stacktrace: " << std::endl;
   
   int printed_messages{0};
-  for (unsigned long i = m_messages.size() - 1; i >= 0; i--)
+  for (int i = m_messages.size() - 1; i >= 0; i--)
   {
     if (printed_messages == size)
       break;
@@ -46,4 +46,6 @@ std::string Logger::levelToString(LogLevel level)
     case LogLevel::ERROR:
       return "[ERROR] ";
   }
+  
+  return "";
 }
