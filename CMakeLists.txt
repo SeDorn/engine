@@ -1,9 +1,25 @@
-cmake_minimum_required(VERSION 3.16)
-project(Engine)
+cmake_minimum_required(VERSION 3.14)
 
-set(CMAKE_CXX_STANDARD 20)
+set(PROJECT_NAME engine)
+project(${PROJECT_NAME})
 
-add_subdirectory(test)
-add_compile_options(-Wall -Wextra -pedantic -Werror)
+set(CMAKE_CXX_FLAGS "-g -Wall")
+set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Engine main.cpp math/Vector.cpp math/Vector.h math/Common.h math/Matrix.cpp math/Matrix.h logger/Logger.cpp logger/Logger.h)
+file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/math/*.cpp ${PROJECT_SOURCE_DIR}/logger/*.cpp)
+list(REMOVE_ITEM SRC_FILES ${PROJECT_SOURCE_DIR}/main.cpp)
+
+add_library(engine_lib ${SRC_FILES})
+add_executable(engine ${PROJECT_SOURCE_DIR}/main.cpp)
+target_link_libraries(engine engine_lib)
+
+add_subdirectory(./googletest)
+enable_testing()
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+
+file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/TestVector.cpp)
+
+add_executable(runUnitTests ${TEST_SRC_FILES})
+target_link_libraries(runUnitTests gtest gtest_main)
+target_link_libraries(runUnitTests engine_lib)
+add_test(UnitTests runUnitTests)
