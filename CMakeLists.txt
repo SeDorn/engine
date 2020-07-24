@@ -4,5 +4,6 @@ project(Engine)
 set(CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(test)
+add_compile_options(-Wall -Wextra -pedantic -Werror)
 
-add_executable(Engine main.cpp math/Vector.cpp math/Vector.h math/Common.h math/Matrix.cpp math/Matrix.h)
+add_executable(Engine main.cpp math/Vector.cpp math/Vector.h math/Common.h math/Matrix.cpp math/Matrix.h logger/Logger.cpp logger/Logger.h)

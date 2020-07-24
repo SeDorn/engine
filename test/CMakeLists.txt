@@ -4,5 +4,5 @@ project(Test)
 add_subdirectory(lib)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
-add_executable(TestRun ../math/Vector.cpp ../math/Vector.h TestVector.cpp ../math/Matrix.cpp ../math/Matrix.h)
+add_executable(TestRun ../math/Vector.cpp ../math/Vector.h TestVector.cpp ../math/Matrix.cpp ../math/Matrix.h ../logger/Logger.cpp ../logger/Logger.h)
 target_link_libraries(TestRun gtest gtest_main)
