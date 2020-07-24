@@ -7,6 +7,8 @@ namespace Math
     public:
       Vector(float x_, float y_);
       Vector(float x, float y, float z);
+  
+      float& operator[](int);
       
       bool operator== (const Vector& b) const;
       

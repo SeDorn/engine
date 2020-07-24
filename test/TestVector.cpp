@@ -21,6 +21,10 @@ TEST_F(TestVector, Create)
   ASSERT_EQ(v.x, 1);
   ASSERT_EQ(v.y, 2);
   ASSERT_EQ(v.z, 3);
+  
+  ASSERT_EQ(v.x, v[0]);
+  ASSERT_EQ(v.y, v[1]);
+  ASSERT_EQ(v.z, v[2]);
 }
 
 TEST_F(TestVector, MultiplyFactor)

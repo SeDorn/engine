@@ -13,6 +13,11 @@ Vector::Vector(float x_, float y_, float z_) : x(x_), y(y_), z(z_)
 {
 }
 
+float &Vector::operator[](int index)
+{
+  return *(&this->x + index);
+}
+
 bool Vector::operator==(const Vector &b) const
 {
   return this->x == b.x &&
