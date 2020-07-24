@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: run-cmake
-    - uses: lukka/run-cmake@v2.5
+      uses: lukka/run-cmake@v2.5
