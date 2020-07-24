@@ -20,6 +20,6 @@ jobs:
       with:
           buildDirectory: ./build
     - name: run-tests
-      run: make test
+      run: ./runUnitTests
       working-directory: ./build
         
