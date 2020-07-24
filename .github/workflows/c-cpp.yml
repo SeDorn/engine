@@ -17,6 +17,9 @@ jobs:
       uses: textbook/git-checkout-submodule-action@master
     - name: run-cmake
       uses: lukka/run-cmake@v2.5
+      with:
+          buildDirectory: '${{ runner.workspace }}/build'
     - name: run-tests
       run: make test
+      working-directory: '${{ runner.workspace }}/build'
         
