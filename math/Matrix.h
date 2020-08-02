@@ -16,6 +16,10 @@ namespace Math
       Matrix operator*(float);
       void operator*=(float);
       
+      bool operator==(Matrix &);
+      
+      Matrix operator+(Matrix &);
+      Matrix operator-(Matrix &);
       Matrix operator*(Matrix &);
       
       float* operator[](int);

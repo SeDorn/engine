@@ -82,6 +82,52 @@ Matrix Matrix::operator*(Matrix &b)
   return multiplication;
 }
 
+bool Matrix::operator==(Matrix &b)
+{
+  for (int row = 0; row < getRows(); row++)
+  {
+    for (int col = 0; col < getCols(); col++)
+    {
+      if (std::abs(m_data[row][col] - b[row][col]) > std::numeric_limits<float>::epsilon())
+      {
+        return false;
+      }
+    }
+  }
+  
+  return true;
+}
+
+Matrix Matrix::operator+(Matrix &b)
+{
+  Matrix result(getRows(), getCols());
+  
+  for (int row = 0; 0 < result.getRows(); row++)
+  {
+    for (int col = 0; col < result.getCols(); col++)
+    {
+      result[row][col] = m_data[row][col] + b[row][col];
+    }
+  }
+  
+  return result;
+}
+
+Matrix Matrix::operator-(Matrix &b)
+{
+  Matrix result(getRows(), getCols());
+  
+  for (int row = 0; row < result.getRows(); row++)
+  {
+    for (int col = 0; col < result.getCols(); col++)
+    {
+      result[row][col] = m_data[row][col] - b[row][col];
+    }
+  }
+  
+  return result;
+}
+
 Matrix::~Matrix()
 {
   for(int i = 0; i < m_rows; i++)
