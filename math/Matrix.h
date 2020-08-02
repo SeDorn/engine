@@ -16,6 +16,8 @@ namespace Math
       Matrix operator*(float);
       void operator*=(float);
       
+      Matrix operator*(Matrix &);
+      
       float* operator[](int);
       
       int getRows() const;

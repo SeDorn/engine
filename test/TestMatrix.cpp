@@ -66,3 +66,42 @@ TEST_F(TestMatrix, ScalarMultiplication)
     }
   }
 }
+
+TEST_F(TestMatrix, MatrixMultiplication)
+{
+  int rows = 4;
+  int cols = 4;
+  
+  int data[4][4] = {{1, 1, 1, 1},
+                   {2, 2, 2, 2},
+                   {3, 3, 3, 3},
+                   {4, 4, 4, 4}};
+  
+  int result_data[4][4] = {{10, 10, 10, 10},
+                           {20, 20, 20, 20},
+                           {30, 30, 30, 30},
+                           {40, 40, 40, 40}};
+  
+  Math::Matrix m1(rows, cols);
+  Math::Matrix m2(rows, cols);
+  
+  for (int row = 0; row < rows; row++)
+  {
+    for (int col = 0; col < cols; col++)
+    {
+      m1[row][col] = data[row][col];
+      m2[row][col] = data[row][col];
+    }
+  }
+  
+  Math::Matrix result = m1 * m2;
+  
+  for (int row = 0; row < rows; row++)
+  {
+    for (int col = 0; col < cols; col++)
+    {
+      ASSERT_EQ(result[row][col], result_data[row][col]);
+    }
+  }
+}
+

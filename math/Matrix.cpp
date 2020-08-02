@@ -63,6 +63,25 @@ void Matrix::operator*=(float factor)
   }
 }
 
+Matrix Matrix::operator*(Matrix &b)
+{
+  Matrix multiplication(getRows(), b.getCols());
+  
+  for (int i = 0; i < multiplication.getRows(); i++)
+  {
+    for (int j = 0; j < multiplication.getCols(); j++)
+    {
+      multiplication[i][j] = 0;
+      for (int k = 0; k < multiplication.getCols(); k++)
+      {
+        multiplication[i][j] += m_data[i][k] * b[k][j];
+      }
+    }
+  }
+  
+  return multiplication;
+}
+
 Matrix::~Matrix()
 {
   for(int i = 0; i < m_rows; i++)
