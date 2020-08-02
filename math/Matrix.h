@@ -1,6 +1,8 @@
 #ifndef ENGINE_MATRIX_H
 #define ENGINE_MATRIX_H
 
+#include "Common.h"
+
 namespace Math
 {
   class Matrix
@@ -8,6 +10,18 @@ namespace Math
     public:
       Matrix(int rows, int cols);
       Matrix() = delete;
+  
+      static Matrix copy(Matrix&);
+      
+      Matrix operator*(float);
+      void operator*=(float);
+      
+      Matrix operator*(Matrix &);
+      
+      float* operator[](int);
+      
+      int getRows() const;
+      int getCols() const;
     
       ~Matrix();
     
