@@ -1,5 +1,5 @@
 # SeDornEngine - WIP C++ Game Engine
-![C/C++ CI](https://github.com/SeDorn/engine/workflows/C/C++%20CI/badge.svg?branch=master)
+![C/C++ CI](https://github.com/SeDorn/sedornengine/workflows/C/C++%20CI/badge.svg?branch=master)
 
 
 SeDornEngine is a WIP Game Engine which is developed fully from scratch.
